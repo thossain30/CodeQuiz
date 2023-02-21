@@ -1,5 +1,7 @@
 :root {
-    --button-green : #4CAF50;
+    --background-color: #cff2ea;
+    --question-container: #b9f1e4;
+    --button-green : #4dd452;
     --button-hover: #327734;
     --button-click: #14e745;
     --highscore-blue: rgb(0, 55, 255);
@@ -8,6 +10,7 @@
 * {
     margin: 10px 20px;
     font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
 }
 button {
     background-color: var(--button-green);
@@ -27,6 +30,10 @@ button:hover {
 
 button:active {
     background-color: var(--button-click);
+}
+
+.title {
+    font-size: 64px;
 }
 
 .start-header {
@@ -55,17 +62,25 @@ button:active {
 
 .highscores {
     color: var(--highscore-blue);
+    font-size: 24px;
+}
+
+.score-container {
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .question-container {
+    background-color: var(--question-container);
     width: 800px;
     max-width: 80%;
     box-shadow: 0 0 10px 2px;
     margin: 30px 20px;
 }
 
-.question {
+.question, .answers {
     padding: 20px;
+    background-color: var(--question-container);
 }
 
 .button-grid {
