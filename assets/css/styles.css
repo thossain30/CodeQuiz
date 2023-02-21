@@ -57,14 +57,14 @@ button:active {
     color: var(--highscore-blue);
 }
 
-.question {
+.question-container {
     width: 800px;
     max-width: 80%;
     box-shadow: 0 0 10px 2px;
     margin: 30px 20px;
 }
 
-.question div {
+.question {
     padding: 20px;
 }
 
