@@ -5,21 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h3>Timed Coding Quiz</h3>
+        <h1>Timed Coding Quiz</h1>
     </header>
     <section>
         <div class="timer-text">
-            <div><h4>View Highscores</h4></div>
-            <div>
-                <div class="timerCount">
-                    <button class="start-button">Begin</button>
-                    <button class="stop">stop</button>
-                    <p><span class="start-timer">19 </span>seconds remaining</p>
-                </div>
-            </div>
+            <h3 class="highscores">View Highscores</h4>
+            <p class="timerCount"><span class="start-timer">19 </span>seconds remaining</p>
+        </div>
+        <div class="controls">
+            <button class="start-button">Begin</button>
+            <button class="stop">stop</button>
+        </div>
+    </section>
+
+    <section class="question">
+        <div id="question-container" class="hide">
+            <h3> Question</h3>
+        </div>
+        <div id="answers" class="button-grid">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
     </section>
 
