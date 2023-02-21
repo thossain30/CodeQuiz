@@ -15,6 +15,11 @@ let timeRemaining = document.querySelector(".start-timer");
 let score = document.querySelector(".score");
 let scoreNum = parseInt(score.textContent);
 
+// List of high scores
+let scoresList = document.querySelector(".scores-list");
+// Name textbox
+let name = document.querySelector(".name");
+
 let shuffledQuestions, currentQuestionIndex;
 let questionElement = document.querySelector(".question");
 let answersElement = document.querySelector(".answers");
@@ -49,8 +54,17 @@ function startQuiz() {
     }, 1000)
 }
 
+// function to take value from text input and add to ol
+function addHighScore() {
+    let newScore = document.createElement("li");
+    newScore.textContent = scoreNum + " " + name.value;
+    scoresList.appendChild(newScore);
+    console.log(newScore);
+}
+
 // returns to start page from score page
 function restart() {
+    addHighScore();
     questionPage.classList.add("hide");
     scoresPage.classList.add("hide");
     startPage.classList.remove("hide");
