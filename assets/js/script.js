@@ -36,7 +36,7 @@ function startQuiz() {
         }
         // Sets time remaining text to new decremented number
         timeRemaining.textContent = timeLeft + " ";
-    }, 1000);
+    }, 1000)
 }
 
 
@@ -80,8 +80,8 @@ function resetState() {
 function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
-    console.log("This is the correct answer: " + correct);
-    if (currentQuestionIndex >= questions.length) {
+    console.log("index: " + currentQuestionIndex);
+    if (currentQuestionIndex >= questions.length - 1) {
         stopQuiz();
     } else {
         currentQuestionIndex++;
