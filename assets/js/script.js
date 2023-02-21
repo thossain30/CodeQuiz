@@ -2,23 +2,28 @@
 let startPage = document.querySelector(".start-page")
 // Page with questions and answers on it
 let questionPage = document.querySelector(".question-container");
+// Page that displays high scores
+let scoresPage = document.querySelector(".score-page");
+
 // Button to begin the quiz
 let startButton = document.querySelector(".start-button");
-// Tool to debug timer related events
-let stopButton = document.querySelector(".stop");
+// Button to return to start from Score page
+let restartButton = document.querySelector(".return-button");
 // Amount of time left
 let timeRemaining = document.querySelector(".start-timer");
 // Player Score
-let score = document.querySelector(".score"); 
+let score = document.querySelector(".score");
 let scoreNum = parseInt(score.textContent);
 
 let shuffledQuestions, currentQuestionIndex;
 let questionElement = document.querySelector(".question");
 let answersElement = document.querySelector(".answers");
 
+let highscores = document.querySelector(".highscores")
+
 let timeLeft;
 function startQuiz() {
-    timeRemaining.textContent = 19;
+    timeRemaining.textContent = 75;
     score.textContent = 0;
     score.setAttribute("style", "color: black");
     timeRemaining.setAttribute("style", "color: black")
@@ -30,7 +35,7 @@ function startQuiz() {
     setNextQuestion();
     time = setInterval(() => {
         if (timeLeft <= 1) {
-            stopQuiz();
+            displayScore();
         }
 
         timeLeft--;
@@ -44,12 +49,19 @@ function startQuiz() {
     }, 1000)
 }
 
+// returns to start page from score page
+function restart() {
+    questionPage.classList.add("hide");
+    scoresPage.classList.add("hide");
+    startPage.classList.remove("hide");
+}
 
-// Stops Timer and runs code for losing
-function stopQuiz() {
+// Stops Timer and runs code to transition to Score Page
+function displayScore() {
     clearInterval(time);
     questionPage.classList.add("hide");
-    startPage.classList.remove("hide");
+    startPage.classList.add("hide");
+    scoresPage.classList.remove("hide");
 }
 
 // displays the next question
@@ -87,15 +99,15 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct;
     if (correct) { 
         scoreNum += 100;
-        score.textContent = scoreNum;
+        score.textContent = scoreNum + "           // correct";
         score.setAttribute("style", "color: green");
     } else {
         scoreNum -= 25;
-        score.textContent = scoreNum;
+        score.textContent = scoreNum + "           // incorrect";
         score.setAttribute("style", "color: red");
     }
     if (currentQuestionIndex >= questions.length - 1) {
-        stopQuiz();
+        displayScore();
     } else {
         currentQuestionIndex++;
         setNextQuestion();
@@ -119,6 +131,17 @@ function clearStatus(element) {
     element.classList.remove("correct");
     element.classList.remove("wrong");
 }
+
+function displayScores() {
+    questionPage.classList.add("hide");
+    scoresPage.classList.remove("hide");
+    startPage.classList.add("hide");
+}
+
+function returnToStart() {
+    
+}
+
 let questions = [
     {
         question: "Which of these is NOT a primitive data type?", 
@@ -213,5 +236,5 @@ let questions = [
 ]
 
 startButton.addEventListener("click", startQuiz);
-// Tool to debug timer related events
-stopButton.addEventListener("click", stopQuiz)
+highscores.addEventListener("click", displayScores);
+restartButton.addEventListener("click", restart);

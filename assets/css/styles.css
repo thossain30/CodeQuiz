@@ -5,6 +5,7 @@
     --button-hover: #327734;
     --button-click: #14e745;
     --highscore-blue: rgb(0, 55, 255);
+    --highscore-blue-hover: rgb(3, 36, 153);
 }
 
 * {
@@ -32,6 +33,10 @@ button:active {
     background-color: var(--button-click);
 }
 
+input {
+    width: 256px;
+}
+
 .title {
     font-size: 64px;
 }
@@ -41,6 +46,28 @@ button:active {
     padding: 20px 0;
     margin-left: 20%;
     max-width: 60%;
+}
+
+.score-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-header {
+    font-size: 64px;
+    text-decoration: underline;
+}
+
+.finalscore-container {
+    font-size: 32px;
+}
+
+.highscores:hover {
+    cursor: pointer;
+    color: var(--highscore-blue-hover);
+    text-decoration: underline;
 }
 
 .timer-text {
@@ -53,7 +80,7 @@ button:active {
     justify-content: center;
 }
 .controls button {
-    font-size: 32px;
+    font-size: 48px;
     font-weight: bold;
 }
 .timerCount {

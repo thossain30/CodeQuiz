@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
     </header>
     <section class="timer-text">
         <h3 class="highscores">View Highscores</h4>
-        <p class="timerCount"><span class="start-timer">9</span> seconds remaining</p>
+        <p class="timerCount"><span class="start-timer"></span> seconds remaining</p>
     </section>
     <section>
         <h4 class="score-container">Score: <span class="score">0</span></h4>
@@ -29,7 +29,6 @@
         </h2>
         <div class="controls">
             <button class="start-button">Begin</button>
-            <button class="stop">stop</button>
         </div>
     </section>
 
@@ -41,6 +40,15 @@
             <button class="btn">Answer 3</button>
             <button class="btn">Answer 4</button>
         </div>
+    </section>
+
+    <!-- Add hide class here later -->
+    <section class="score-page"> 
+        <h1 class="score-header"> High Scores</h1>
+        <ol class="scores-list"></ol>
+        <h4 class="finalscore-container">Score: <span class="finalscore">0</span></h4>
+        <input type="text" placeholder="enter name" maxlength="3">
+        <button class="return-button">Add Score</button>
     </section>
 
     <script src="/assets/js/script.js"></script>
