@@ -15,19 +15,23 @@
     <header>
         <h1>Timed Coding Quiz</h1>
     </header>
-    <section>
-        <div class="timer-text">
-            <h3 class="highscores">View Highscores</h4>
-            <p class="timerCount"><span class="start-timer">19 </span>seconds remaining</p>
-        </div>
+    <section class="timer-text">
+        <h3 class="highscores">View Highscores</h4>
+        <p class="timerCount"><span class="start-timer">9</span> seconds remaining</p>
+    </section>
+    <section class="start-page">
+        <h2 class="start-header"> This is a quiz to test your JavaScript Knowledge. 
+            Once you start, a timer will begin so try to answer fast and do your best.
+            Keep in mind that incorrect answers will penalize your score.
+        </h2>
         <div class="controls">
             <button class="start-button">Begin</button>
             <button class="stop">stop</button>
         </div>
     </section>
 
-    <section class="question">
-        <div id="question-container" class="hide">
+    <section class="question hide">
+        <div id="question-container">
             <h3> Question</h3>
         </div>
         <div id="answers" class="button-grid">

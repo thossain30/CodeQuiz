@@ -1,7 +1,7 @@
 :root {
     --button-green : #4CAF50;
     --button-hover: #327734;
-    --button-click: #ad1b1b;
+    --button-click: #14e745;
     --highscore-blue: rgb(0, 55, 255);
 }
 
@@ -16,21 +16,24 @@ button {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
-}
-
-.controls button {
-    font-size: 32px;
 }
 
 button:hover {
     background-color: var(--button-hover);
+    border: 2px solid black;
 }
 
 button:active {
     background-color: var(--button-click);
+}
+
+.start-header {
+    line-height: 32px;
+    padding: 20px 0;
+    margin-left: 20%;
+    max-width: 60%;
 }
 
 .timer-text {
@@ -41,6 +44,10 @@ button:active {
 .controls {
     display: flex;
     justify-content: center;
+}
+.controls button {
+    font-size: 32px;
+    font-weight: bold;
 }
 .timerCount {
     margin-right: 20px;
@@ -65,5 +72,9 @@ button:active {
     display: grid;
     gap: 10px;
     margin: 20px 0;
+}
+
+.hide {
+    display: none;
 }
 
