@@ -2,21 +2,26 @@
 let startPage = document.querySelector(".start-page")
 // Page with questions and answers on it
 let questionPage = document.querySelector(".question-container");
-// Page that displays high scores
+// Page that displays allows you to add high scores
 let scoresPage = document.querySelector(".score-page");
+// Page that allows you to see high scores
+let displayPage = document.querySelector(".display-page");
 
 // Button to begin the quiz
 let startButton = document.querySelector(".start-button");
-// Button to return to start from Score page
-let restartButton = document.querySelector(".return-button");
+// Button to add score and return to start page
+let addButton = document.querySelector(".add-button");
+// Button to go from display page to start page
+let returnButton = document.querySelector(".return-button");
 // Amount of time left
 let timeRemaining = document.querySelector(".start-timer");
 // Player Score
 let score = document.querySelector(".score");
+let finalscore = document.querySelector(".finalscore");
 let scoreNum = parseInt(score.textContent);
 
 // List of high scores
-let scoresList = document.querySelector(".scores-list");
+let scoresList = document.querySelectorAll(".scores-list");
 // Name textbox
 let name = document.querySelector(".name");
 
@@ -29,6 +34,7 @@ let highscores = document.querySelector(".highscores")
 let timeLeft;
 function startQuiz() {
     timeRemaining.textContent = 75;
+    scoreNum = 0;
     score.textContent = 0;
     score.setAttribute("style", "color: black");
     timeRemaining.setAttribute("style", "color: black")
@@ -40,7 +46,7 @@ function startQuiz() {
     setNextQuestion();
     time = setInterval(() => {
         if (timeLeft <= 1) {
-            displayScore();
+            displayScorePage();
         }
 
         timeLeft--;
@@ -58,24 +64,40 @@ function startQuiz() {
 function addHighScore() {
     let newScore = document.createElement("li");
     newScore.textContent = scoreNum + " " + name.value;
-    scoresList.appendChild(newScore);
-    console.log(newScore);
+    scoresList.forEach(element => {
+        element.appendChild(newScore); 
+    });
+    console.log(scoresList.entries);
+    localStorage.setItem("score-list", scoresList);
+    console.log(localStorage.getItem("score-list"));
 }
 
 // returns to start page from score page
-function restart() {
+function addScoreandRestart() {
     addHighScore();
+    clearInterval(time);
     questionPage.classList.add("hide");
     scoresPage.classList.add("hide");
     startPage.classList.remove("hide");
+    displayPage.classList.add("hide");
 }
 
-// Stops Timer and runs code to transition to Score Page
-function displayScore() {
+function restart() {
+    questionPage.classList.add("hide");
+    scoresPage.classList.add("hide");
+    startPage.classList.remove("hide");
+    displayPage.classList.add("hide");
+}
+
+// Stops Timer and runs code to transition to Score Add Page
+function displayScorePage() {
+    finalscore.textContent = scoreNum;
     clearInterval(time);
+    localStorage.getItem("score-list");
     questionPage.classList.add("hide");
     startPage.classList.add("hide");
     scoresPage.classList.remove("hide");
+    displayPage.classList.add("hide");
 }
 
 // displays the next question
@@ -121,7 +143,7 @@ function selectAnswer(e) {
         score.setAttribute("style", "color: red");
     }
     if (currentQuestionIndex >= questions.length - 1) {
-        displayScore();
+        displayScorePage();
     } else {
         currentQuestionIndex++;
         setNextQuestion();
@@ -146,14 +168,12 @@ function clearStatus(element) {
     element.classList.remove("wrong");
 }
 
-function displayScores() {
+function displayHighScores() {
+    clearInterval(time);
     questionPage.classList.add("hide");
-    scoresPage.classList.remove("hide");
+    scoresPage.classList.add("hide");
     startPage.classList.add("hide");
-}
-
-function returnToStart() {
-    
+    displayPage.classList.remove("hide");
 }
 
 let questions = [
@@ -250,5 +270,6 @@ let questions = [
 ]
 
 startButton.addEventListener("click", startQuiz);
-highscores.addEventListener("click", displayScores);
-restartButton.addEventListener("click", restart);
+highscores.addEventListener("click", displayHighScores);
+addButton.addEventListener("click", addScoreandRestart);
+returnButton.addEventListener("click", restart);

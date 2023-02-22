@@ -17,7 +17,7 @@
     </header>
     <section class="timer-text">
         <h3 class="highscores">View Highscores</h4>
-        <p class="timerCount"><span class="start-timer"></span> seconds remaining</p>
+        <p class="timerCount"><span class="start-timer">0</span> seconds remaining</p>
     </section>
     <section>
         <h4 class="score-container">Score: <span class="score">0</span></h4>
@@ -43,12 +43,19 @@
     </section>
 
     <!-- Add hide class here later -->
-    <section class="score-page"> 
+    <section class="score-page hide"> 
         <h1 class="score-header"> High Scores</h1>
         <ol class="scores-list"></ol>
         <h4 class="finalscore-container">Score: <span class="finalscore">0</span></h4>
         <input class="name" type="text" placeholder="enter name" maxlength="3">
-        <button class="return-button">Add Score</button>
+        <button class="add-button">Add Score</button>
+    </section>
+
+    <!-- Add hide class here later -->
+    <section class="display-page hide"> 
+        <h1 class="score-header"> High Scores</h1>
+        <ol class="scores-list"></ol>
+        <button class="return-button">Restart</button>
     </section>
 
     <script src="/assets/js/script.js"></script>

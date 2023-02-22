@@ -6,6 +6,7 @@
     --button-click: #14e745;
     --highscore-blue: rgb(0, 55, 255);
     --highscore-blue-hover: rgb(3, 36, 153);
+    --answer-color: #374641;
 }
 
 * {
@@ -26,7 +27,6 @@ button {
 
 button:hover {
     background-color: var(--button-hover);
-    border: 2px solid black;
 }
 
 button:active {
@@ -37,10 +37,21 @@ input {
     width: 256px;
 }
 
+li {
+    font-size: 20px;
+    font-weight: bold;
+}
 .title {
     font-size: 64px;
 }
 
+.btn {
+    color: var(--answer-color);
+}
+
+.btn:hover {
+    color: white;
+}
 .start-header {
     line-height: 32px;
     padding: 20px 0;
@@ -48,7 +59,7 @@ input {
     max-width: 60%;
 }
 
-.score-page {
+.score-page, .display-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,6 +110,8 @@ input {
 
 .question-container {
     background-color: var(--question-container);
+    display: block;
+    right: 500px;
     width: 800px;
     max-width: 80%;
     box-shadow: 0 0 10px 2px;
